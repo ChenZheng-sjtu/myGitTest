@@ -1,5 +1,5 @@
 #! /home/zheng/anaconda3/envs/tensorflow/bin/python
-print('helloworld')
+
 
 # 导入依赖库
 import numpy as np       # 这是Python的一种开源的数值计算扩展，非常强大
