@@ -8,7 +8,7 @@ import numpy as np       # 这是Python的一种开源的数值计算扩展，�
 import tensorflow as tf  # 导入tensorflow
 
 # #构造数据# #
-x_data = np.random.rand(100).astype(tf.float32)  # 随机生成100个类型为float32的值
+x_data = np.random.rand(100).astype(np.float32)  # 随机生成100个类型为float32的值
 y_data = x_data*0.1+0.3  # 定义方程式y=x_data*A+B
 # #-------# #
 

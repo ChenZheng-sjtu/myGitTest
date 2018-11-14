@@ -15,16 +15,17 @@ y = tf.nn.softmax(tf.matmul(x,w)+b)
 y_ = tf.placeholder(tf.float32,[None,10])
 cross_entropy = -tf.reduce_sum(y_*tf.log(y))  # 计算交叉商=sum(  -y'*log(y) )
 optimizer = tf.train.GradientDescentOptimizer(0.5) #学习率=0.5，根据差距进行反向传播修正参数
-train = optimizer.minimize(cross_entropy)
+train_step = optimizer.minimize(cross_entropy)
 
 init = tf.global_variables_initializer()  # initialize_all_variables()  # 初始化训练结构
 sess = tf.Session()                   # 建立Tensorflow训练会话
 sess.run(init)                        # 将训练结构装载到会话中
 
 # 采用mini_batch进行训练,mini_batch的大小为100
-for i in range(1000):
+keep_prob = tf.placeholder(tf.float32)
+for i in range(10):
     batch_xs,batch_ys = mnist.train.next_batch(100)
-    sess.run(train, feed_dict={x:batch_xs, y:batch_ys}) # 训练train
+    sess.run(train_step, feed_dict={x: batch_xs, y: batch_ys,keep_prob:1.0}) # 训练train
 
 # 评估模型
 correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))  # 预测值和真实值之间是否相等，返回逻辑值
