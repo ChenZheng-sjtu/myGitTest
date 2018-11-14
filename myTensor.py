@@ -17,7 +17,7 @@ cross_entropy = -tf.reduce_sum(y_*tf.log(y))  # 计算交叉商=sum(  -y'*log(y)
 optimizer = tf.train.GradientDescentOptimizer(0.5) #学习率=0.5，根据差距进行反向传播修正参数
 train = optimizer.minimize(cross_entropy)
 
-init = tf.global_variables_initializer  # initialize_all_variables()  # 初始化训练结构
+init = tf.global_variables_initializer()  # initialize_all_variables()  # 初始化训练结构
 sess = tf.Session()                   # 建立Tensorflow训练会话
 sess.run(init)                        # 将训练结构装载到会话中
 

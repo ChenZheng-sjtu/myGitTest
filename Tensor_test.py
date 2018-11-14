@@ -1,4 +1,6 @@
-#! /home/zheng/anaconda3/envs/tensorflow/bin/python
+#!/home/zheng/anaconda3/envs/tensorflow/bin/python
+# -*- coding: utf-8 -*-
+
 
 
 # 导入依赖库
@@ -14,7 +16,7 @@ y_data = x_data*0.1+0.3  # 定义方程式y=x_data*A+B
 weight = tf.Variable(tf.random_uniform([1], -1.0, 1.0))
 biases = tf.Variable(tf.zeros([1]))
 y = weight*x_data+biases
-# #-------# #
+# #-------# #i
 
 loss = tf.reduce_mean(tf.square(y-y_data))  # 判断与正确值的差距
 optimizer = tf.train.GradientDescentOptimizer(0.5)  # 根据差距进行反向传播修正参数
